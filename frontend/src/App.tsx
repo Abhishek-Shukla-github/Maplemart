@@ -1,8 +1,18 @@
+import { Container } from "react-bootstrap"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+
 function App() {
 
   return (
     <>
-      Welcome to the MapleMart
+    <Header />
+    <main>
+      <Container>
+        <h1>Welcome to the MapleMart</h1>
+      </Container>
+    </main>
+    <Footer />
     </>
   )
 }
