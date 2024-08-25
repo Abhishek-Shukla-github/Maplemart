@@ -1,6 +1,7 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Product as ProductType} from "../types/HomeScreen"
+import Rating from './Rating';
 
 type propType = {
   productInfo: ProductType
@@ -21,7 +22,7 @@ const Product = ({ productInfo} : propType) => {
         </Link>
 
         <Card.Text as='div'>
-            Rating here
+            <Rating value={productInfo.rating} text={`${productInfo.numReviews} reviews`}/>
         </Card.Text>
 
         <Card.Text as='h3'>${productInfo.price}</Card.Text>

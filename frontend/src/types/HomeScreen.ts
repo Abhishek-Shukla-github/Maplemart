@@ -10,3 +10,9 @@ export type Product = {
     rating: number,
     numReviews: number,
 }
+
+export type Rating = {
+    value: number,
+    color?: string,
+    text?: string,
+}
