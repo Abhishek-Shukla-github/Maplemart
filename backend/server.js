@@ -6,7 +6,7 @@ const port = 5000;
 const app = express()
 
 app.get("/",(req,res) => {
-    res.send("API is running on the home route")
+    res.send("API is running on the home route!!")
 })
 
 app.get("/api/products",(req,res) => {
