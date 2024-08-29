@@ -11,9 +11,26 @@ import {
 import products from '../products';
 import Rating from '../components/Rating';
 import { Product as ProductType } from '../types/HomeScreen';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
+  const [productInfoState, setProductInfoState] = useState<ProductType | null>(null)
+
+  useEffect(() => {
+    const fetchProductInfo = async () => {
+      const {data}:{data:ProductType} = await axios.get(`/api/products/${productId}`)
+      setProductInfoState(data)
+    }
+
+    fetchProductInfo()
+  },[])
+
+  if (!productInfoState) {
+    // Render a loading state or nothing while the data is being fetched
+    return <div>Loading...</div>;
+  }
 
   const product: ProductType = products.find(p => p._id === productId)!; 
 

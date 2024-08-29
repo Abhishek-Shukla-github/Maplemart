@@ -77,6 +77,19 @@ const products = [
       rating: 4,
       numReviews: 12,
     },
+    {
+      _id: "7",
+      name: 'NVIDIA GTX 1970',
+      image: "/images/mouse.jpg",
+      description:
+        'LOREM LOREM IPSUM IPSUM',
+      brand: 'NVIDIA',
+      category: 'Electronics',
+      price: 370,
+      countInStock: 4,
+      rating: 4,
+      numReviews: 18,
+    }
   ];
    
   export default products;
