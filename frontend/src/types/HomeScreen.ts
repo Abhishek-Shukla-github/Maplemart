@@ -16,3 +16,15 @@ export type Rating = {
     color?: string,
     text?: string,
 }
+
+type CartItem = Product  & {
+    qty: number
+}
+
+export type Cart = {
+    cartItems: CartItem[],
+    itemsPrice: string
+    shippingPrice: string
+    taxPrice: string
+    totalPrice: string
+}
