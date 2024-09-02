@@ -11,6 +11,8 @@ import {
 import Rating from '../components/Rating';
 import { Product as ProductType } from '../types/HomeScreen';
 import { useGetProductDetailQuery } from '../slices/productsApiSlice';
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -22,7 +24,7 @@ const ProductScreen = () => {
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
-      {isLoading ? <h2>Loading </h2> : error ? <h2>Try Again....</h2> : 
+      {isLoading ? <Loader /> : error ? <Message><h2>Please Try Again</h2></Message> : 
         <>
           <Row>
             <Col md={6}>
