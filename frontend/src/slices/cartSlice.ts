@@ -10,8 +10,6 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            // NOTE: we don't need user, rating, numReviews or reviews
-            // in the cart
             const { user, rating, numReviews, reviews, ...item } = action.payload;
       
             const existItem = state.cartItems.find((x: ProductType) => x._id === item._id);
@@ -26,8 +24,12 @@ const cartSlice = createSlice({
       
             return updateCart(state);
         },
+        removeFromCart: (state, action) => {
+          state.cartItems = state.cartItems.filter((item: ProductType) => item._id !== action.payload)
+          return updateCart(state)
+        }
     }
 })
 
-export const {addToCart} = cartSlice.actions;
+export const {addToCart, removeFromCart} = cartSlice.actions;
 export default cartSlice.reducer

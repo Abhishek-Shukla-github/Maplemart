@@ -3,7 +3,7 @@ import { Row, Col, ListGroup, Image, Form,Button, Card } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import Message from "../components/Message"
 import { useDispatch, useSelector } from "react-redux"
-import { addToCart } from "../slices/cartSlice"
+import { addToCart, removeFromCart } from "../slices/cartSlice"
 import { CartItem } from "../types/HomeScreen"
 
 const CartScreen = () => {
@@ -20,6 +20,10 @@ const CartScreen = () => {
   const checkoutHandler = () => {
     navigate('/login?redirect=/shipping');
   };
+
+  const removeFromCartHandler = (id: string) => {
+    dispatch(removeFromCart(id))
+  }
 
   return (
     <Row>
@@ -60,6 +64,7 @@ const CartScreen = () => {
                     <Button
                       type='button'
                       variant='light'
+                      onClick={() => removeFromCartHandler(item._id)}
                     >
                       <FaTrash />
                     </Button>
