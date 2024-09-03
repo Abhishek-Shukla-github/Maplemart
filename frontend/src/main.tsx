@@ -15,12 +15,14 @@ import './assets/styles/index.css';
 import App from './App.tsx'
 import HomeScreen from './screens/HomeScreen.tsx';
 import ProductScreen from './screens/ProductScreen.tsx';
+import CartScreen from './screens/CartScreen.tsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path='/' element={<App />}>
         <Route index={true} path='/' element={<HomeScreen />} />
         <Route index={true} path='/product/:id' element={<ProductScreen />} />
+        <Route index={true} path='/cart' element={<CartScreen />} />
       </Route>
     )
   )

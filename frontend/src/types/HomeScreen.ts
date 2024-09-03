@@ -17,7 +17,7 @@ export type Rating = {
     text?: string,
 }
 
-type CartItem = Product  & {
+export type CartItem = Product  & {
     qty: number
 }
 
