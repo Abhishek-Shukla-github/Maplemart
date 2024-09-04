@@ -13,7 +13,7 @@ const getUsers = asyncHandler (async(req,res) => {
 // @desc    Get user by id
 // @route   GET /api/users/:id
 // @access  Private/Admin
-const getUserbyId = asyncHandler (async(req,res) => {
+const getUserById = asyncHandler (async(req,res) => {
     // const users = await Product.find({})
     return res.json("Get User by id")
 })
@@ -95,4 +95,4 @@ const updateUserProfile = asyncHandler (async(req,res) => {
     res.send("Update user profile")
 })
 
-export {getUsers, getUserbyId, deleteUser, updateUser,authUser, registerUser, logoutUser,getUserProfile,updateUserProfile};
+export {getUsers, getUserById, deleteUser, updateUser,authUser, registerUser, logoutUser,getUserProfile,updateUserProfile};
