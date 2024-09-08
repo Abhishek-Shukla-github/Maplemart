@@ -9,6 +9,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import store from "./store.ts"
 import { Provider } from 'react-redux';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/bootstrap.custom.css';
 import './assets/styles/index.css';
@@ -47,8 +48,10 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+      <Provider store={store}>
+        <PayPalScriptProvider deferLoading={true}>
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </Provider>
   </StrictMode>
 )
