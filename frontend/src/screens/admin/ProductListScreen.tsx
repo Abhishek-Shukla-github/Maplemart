@@ -6,8 +6,8 @@ import Loader from '../../components/Loader';
 // import Paginate from '../../components/Paginate';
 import {
   useGetProductsQuery,
-  // useDeleteProductMutation,
-  // useCreateProductMutation,
+  useDeleteProductMutation,
+  useCreateProductMutation,
 } from '../../slices/productsApiSlice';
 import { toast } from 'react-toastify';
 import { Product as ProductType } from '../../types/HomeScreen';
@@ -17,8 +17,8 @@ const ProductListScreen = () => {
 
   const { data, isLoading, error, refetch } = useGetProductsQuery({});
 
-  // const [deleteProduct, { isLoading: loadingDelete }] =
-  //   useDeleteProductMutation();
+  const [deleteProduct, { isLoading: loadingDelete }] =
+    useDeleteProductMutation();
 
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure')) {
@@ -31,18 +31,18 @@ const ProductListScreen = () => {
     }
   };
 
-  // const [createProduct, { isLoading: loadingCreate }] =
-  //   useCreateProductMutation();
+  const [createProduct, { isLoading: loadingCreate }] =
+    useCreateProductMutation();
 
   const createProductHandler = async () => {
     if (window.confirm('Are you sure you want to create a new product?')) {
       console.log("Creating product")
-      // try {
-      //   await createProduct();
-      //   refetch();
-      // } catch (err) {
-      //   toast.error(err?.data?.message || err.error);
-      // }
+      try {
+        await createProduct();
+        refetch();
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
     }
   };
 
@@ -79,7 +79,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((product: ProductType) => (
+              {data.products.map((product: ProductType) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>

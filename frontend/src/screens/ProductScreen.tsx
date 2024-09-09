@@ -13,7 +13,7 @@ import {
   } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import { Product as ProductType } from '../types/HomeScreen';
-import { useGetProductDetailQuery } from '../slices/productsApiSlice';
+import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import {addToCart} from '../slices/cartSlice';
@@ -23,7 +23,7 @@ const ProductScreen = () => {
   const navigate = useNavigate();
 
   const { id: productId } = useParams();
-  const {data, isLoading, error} = useGetProductDetailQuery(productId) 
+  const {data, isLoading, error} = useGetProductDetailsQuery(productId) 
   const [qty, setQty] = useState(1);
 
   const addToCartHandler = () => {
