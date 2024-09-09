@@ -41,6 +41,9 @@ const router = createBrowserRouter(
         <Route index={true} path='/cart' element={<CartScreen />} />
         <Route index={true} path='/login' element={<LoginScreen />} />
         <Route index={true} path='/register' element={<RegisterScreen />} />
+        <Route path='/search/:keyword' element={<HomeScreen />} />
+        <Route path='/page/:pageNumber' element={<HomeScreen />} />
+        <Route path='/search/:keyword/page/:pageNumber' element={<HomeScreen />}/>
       
          {/* Registered users */}
         <Route path='' element={<PrivateRoute />}>
