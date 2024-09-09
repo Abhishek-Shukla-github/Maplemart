@@ -28,3 +28,14 @@ export type Cart = {
     taxPrice: string
     totalPrice: string
 }
+
+export type User = {
+    _id: string,
+    name: string,
+    email: string,
+    password: string,
+    isAdmin: boolean,
+    __v: number,
+    createdAt: string,
+    updatedAt: string
+  }
