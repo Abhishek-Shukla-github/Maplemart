@@ -17,8 +17,10 @@ import { useGetProductDetailsQuery, useCreateReviewMutation} from '../slices/pro
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 import {addToCart} from '../slices/cartSlice';
 import { Review as ReviewType } from '../types/HomeScreen';
+
 
 const ProductScreen = () => {
   const dispatch = useDispatch();
@@ -65,6 +67,7 @@ const ProductScreen = () => {
   const productDetails = product as ProductType
   return (
     <>
+      <Meta title={productDetails?.name}/>
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>

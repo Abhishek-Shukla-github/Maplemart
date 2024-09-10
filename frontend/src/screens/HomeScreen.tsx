@@ -35,7 +35,7 @@ const HomeScreen = () => {
         </Message>
       ) : (
         <>
-          {/* <Meta title='MapleMart'/> */}
+          <Meta />
           <h1>Latest Products</h1>
           <Row>
             {data.products.map((product: ProductType) => (

@@ -2,6 +2,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Product as ProductType} from "../types/HomeScreen"
 import Rating from './Rating';
+import Meta from "./Meta"
 
 type propType = {
   productInfo: ProductType
