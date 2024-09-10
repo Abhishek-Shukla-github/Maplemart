@@ -10,6 +10,7 @@ import { useProfileMutation } from '../slices/userApiSlice';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { Link } from 'react-router-dom';
+import { OrderItemType, OrderType, ReduxStoreType } from '../types/Types';
 
 const ProfileScreen = () => {
   const [name, setName] = useState('');
@@ -17,7 +18,7 @@ const ProfileScreen = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state: ReduxStoreType) => state.auth);
 
   const { data: orders, isLoading, error } = useGetMyOrdersQuery();
 
@@ -125,7 +126,7 @@ const ProfileScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders.map((order: OrderType) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>

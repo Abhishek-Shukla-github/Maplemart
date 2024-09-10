@@ -4,6 +4,7 @@ import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
 import { Link } from 'react-router-dom';
+import { OrderType } from '../../types/Types';
 
 const OrderListScreen = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
@@ -31,7 +32,7 @@ const OrderListScreen = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order: OrderType) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user && order.user.name}</td>

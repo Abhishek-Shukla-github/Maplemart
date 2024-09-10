@@ -1,5 +1,5 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
-import { Rating as RatingType} from '../types/HomeScreen';
+import { Rating as RatingType} from '../types/Types';
 
 
 const Rating = ({text,value}: RatingType) => {

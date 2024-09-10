@@ -8,7 +8,7 @@ import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
-import { Product as ProductType } from '../types/HomeScreen';
+import { Product as ProductType } from '../types/Types';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();

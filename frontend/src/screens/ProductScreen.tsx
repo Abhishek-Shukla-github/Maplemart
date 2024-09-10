@@ -12,14 +12,14 @@ import {
     Form
   } from 'react-bootstrap';
 import Rating from '../components/Rating';
-import { Product as ProductType } from '../types/HomeScreen';
+import { Product as ProductType, ReduxStoreType } from '../types/Types';
 import { useGetProductDetailsQuery, useCreateReviewMutation} from '../slices/productsApiSlice';
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Meta from '../components/Meta';
 import {addToCart} from '../slices/cartSlice';
-import { Review as ReviewType } from '../types/HomeScreen';
+import { Review as ReviewType } from '../types/Types';
 
 const ProductScreen = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const ProductScreen = () => {
     error,
   } = useGetProductDetailsQuery(productId);
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state: ReduxStoreType) => state.auth);
 
   const [createReview, { isLoading: loadingProductReview }] =
     useCreateReviewMutation();

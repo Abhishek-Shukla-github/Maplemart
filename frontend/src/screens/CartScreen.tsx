@@ -4,13 +4,13 @@ import { FaTrash } from "react-icons/fa"
 import Message from "../components/Message"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart, removeFromCart } from "../slices/cartSlice"
-import { CartItem } from "../types/HomeScreen"
+import { CartItem, ReduxStoreType } from "../types/Types"
 
 const CartScreen = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const cart = useSelector((state) => state.cart);
+    const cart = useSelector((state: ReduxStoreType) => state.cart);
   const { cartItems } = cart;
 
   const addToCartHandler = (product: CartItem, qty:number) => {

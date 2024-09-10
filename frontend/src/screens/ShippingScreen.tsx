@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import FormContainer from '../components/FormContainer';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { saveShippingAddress } from '../slices/cartSlice';
+import { ReduxStoreType } from '../types/Types';
 
 const ShippingScreen = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: ReduxStoreType) => state.cart);
   const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress?.address || '');

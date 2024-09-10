@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import {Product as ProductType} from "../types/HomeScreen"
+import {Product as ProductType} from "../types/Types"
 import Rating from './Rating';
 import Meta from "./Meta"
 

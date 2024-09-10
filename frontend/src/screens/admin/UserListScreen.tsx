@@ -8,7 +8,7 @@ import {
 } from '../../slices/userApiSlice';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { User as UserType } from '../../types/HomeScreen';
+import { User as UserType } from '../../types/Types';
 
 const UserListScreen = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();

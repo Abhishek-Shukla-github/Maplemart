@@ -8,12 +8,12 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import Loader from '../components/Loader';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { clearCartItems } from '../slices/cartSlice';
-import { CartItem as CartItemType } from '../types/HomeScreen';
+import { CartItem as CartItemType, ReduxStoreType } from '../types/Types';
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: ReduxStoreType) => state.cart);
 
   const [createOrder, { isLoading, error }] = useCreateOrderMutation();
 
@@ -146,7 +146,7 @@ const PlaceOrderScreen = () => {
                 <Button
                   type='button'
                   className='btn-block'
-                  disabled={cart.cartItems === 0}
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                 >
                   Place Order

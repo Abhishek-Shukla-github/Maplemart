@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../slices/cartSlice';
+import { ReduxStoreType } from '../types/Types';
 
 const PaymentScreen = () => {
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: ReduxStoreType) => state.cart);
   const { shippingAddress } = cart;
 
   useEffect(() => {

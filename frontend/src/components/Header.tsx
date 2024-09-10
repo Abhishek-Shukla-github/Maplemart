@@ -3,14 +3,15 @@ import { FaShoppingCart, FaUser } from 'react-icons/fa'
 import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {CartItem as CartItemType} from "../types/HomeScreen"
+import {CartItem as CartItemType, ReduxStoreType} from "../types/Types"
 import { useLogoutMutation } from '../slices/userApiSlice';
 import {eraseCredentials} from "../slices/authSlice";
+import { resetCart } from '../slices/cartSlice';
 import SearchBox from './SearchBox';
 
 const Header = () => {
-    const {cartItems} = useSelector((state) => state.cart)
-    const {userInfo} = useSelector((state) => state.auth)
+    const {cartItems} = useSelector((state: ReduxStoreType) => state.cart)
+    const {userInfo} = useSelector((state: ReduxStoreType) => state.auth)
     
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Header = () => {
           dispatch(eraseCredentials());
           // NOTE: here we need to reset cart state for when a user logs out so the next
           // user doesn't inherit the previous users cart and shipping
-        //   dispatch(resetCart());
+          dispatch(resetCart());
           navigate('/login');
         } catch (err) {
           console.error(err);

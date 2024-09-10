@@ -8,6 +8,7 @@ import FormContainer from '../components/FormContainer';
 import { useLoginMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { toast } from 'react-toastify';
+import { ReduxStoreType } from '../types/Types';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const LoginScreen = () => {
 
   const [login, { isLoading }] = useLoginMutation();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state:ReduxStoreType) => state.auth);
 
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
@@ -30,13 +31,14 @@ const LoginScreen = () => {
     }
   }, [navigate, redirect, userInfo]);
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
+      console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   };

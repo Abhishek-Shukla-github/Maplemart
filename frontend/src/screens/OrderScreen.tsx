@@ -12,6 +12,7 @@ import {
   useGetPaypalClientIdQuery,
   usePayOrderMutation,
 } from '../slices/ordersApiSlice';
+import { CartItem, OrderItemType, Product as ProductType, ReduxStoreType } from '../types/Types';
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
@@ -28,7 +29,7 @@ const OrderScreen = () => {
   const [deliverOrder, { isLoading: loadingDeliver }] =
     useDeliverOrderMutation();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state:ReduxStoreType) => state.auth);
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -91,7 +92,7 @@ const OrderScreen = () => {
           },
         ],
       })
-      .then((orderID) => {
+      .then((orderID: string) => {
         return orderID;
       });
   }
@@ -154,7 +155,7 @@ const OrderScreen = () => {
                 <Message>Order is empty</Message>
               ) : (
                 <ListGroup variant='flush'>
-                  {order.orderItems.map((item, index) => (
+                  {order.orderItems.map((item:OrderItemType, index: number) => (
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
@@ -219,7 +220,6 @@ const OrderScreen = () => {
                     <Loader />
                   ) : (
                     <div>
-                      {/* THIS BUTTON IS FOR TESTING! REMOVE BEFORE PRODUCTION! */}
                       <Button
                         style={{ marginBottom: '10px' }}
                         onClick={onApproveTest}

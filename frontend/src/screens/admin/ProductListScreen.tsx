@@ -10,7 +10,7 @@ import {
   useCreateProductMutation,
 } from '../../slices/productsApiSlice';
 import { toast } from 'react-toastify';
-import { Product as ProductType } from '../../types/HomeScreen';
+import { Product as ProductType } from '../../types/Types';
 
 const ProductListScreen = () => {
   const { pageNumber } = useParams();
@@ -60,8 +60,8 @@ const ProductListScreen = () => {
         </Col>
       </Row>
 
-      {/* {loadingCreate && <Loader />}
-      {loadingDelete && <Loader />} */}
+      {loadingCreate && <Loader />}
+      {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -108,7 +108,7 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          {/* <Paginate pages={data.pages} page={data.page} isAdmin={true} /> */}
+          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
         </>
       )}
     </>

@@ -8,6 +8,7 @@ import FormContainer from '../components/FormContainer';
 import { useRegisterMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { toast } from 'react-toastify';
+import { ReduxStoreType } from '../types/Types';
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
@@ -20,7 +21,7 @@ const RegisterScreen = () => {
 
   const [register, { isLoading }] = useRegisterMutation();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state: ReduxStoreType) => state.auth);
 
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
@@ -32,7 +33,7 @@ const RegisterScreen = () => {
     }
   }, [navigate, redirect, userInfo]);
 
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
