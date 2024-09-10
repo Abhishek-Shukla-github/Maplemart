@@ -21,7 +21,6 @@ import Meta from '../components/Meta';
 import {addToCart} from '../slices/cartSlice';
 import { Review as ReviewType } from '../types/HomeScreen';
 
-
 const ProductScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
