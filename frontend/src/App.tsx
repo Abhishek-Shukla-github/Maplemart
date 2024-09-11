@@ -12,7 +12,7 @@ function App() {
     <Header />
     <main>
       <Container>
-        <h1>Welcome to the MapleMart</h1>
+        {/* <h1>Welcome to the MapleMart</h1> */}
         <Outlet />
       </Container>
     </main>

@@ -9,11 +9,12 @@ import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
 import { Product as ProductType } from '../types/Types';
+import { useEffect } from 'react';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
 
-  const { data, isLoading, error } = useGetProductsQuery({
+  const { data, isLoading, error, isFetching  } = useGetProductsQuery({
     keyword,
     pageNumber,
   });
@@ -27,7 +28,7 @@ const HomeScreen = () => {
           Go Back
         </Link>
       )}
-      {isLoading ? (
+      {isFetching ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>
@@ -36,7 +37,7 @@ const HomeScreen = () => {
       ) : (
         <>
           <Meta />
-          <h1>Latest Products</h1>
+          <h3>Latest Products</h3>
           <Row>
             {data.products.map((product: ProductType) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>

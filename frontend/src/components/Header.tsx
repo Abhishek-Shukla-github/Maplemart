@@ -1,6 +1,7 @@
 import {Navbar, Nav, Container, Badge, NavDropdown} from 'react-bootstrap'
 import { FaShoppingCart, FaUser } from 'react-icons/fa'
-import logo from '../assets/logo.png';
+// import logo from '../assets/logo.png';
+import logo from '../assets/maple.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {CartItem as CartItemType, ReduxStoreType} from "../types/Types"
@@ -43,8 +44,8 @@ const Header = () => {
         <Navbar bg='dark' variant='dark' expand='md' collapseOnSelect>
             <Container>
                 <Navbar.Brand as={Link} to='/'>
-                <img src={logo} alt='ProShop' width={30} height={30} />
-                    MapleMart
+                    <img src={logo} alt='ProShop' width={70} height={70} style={{borderRadius: "50%"}}/>
+                {/* MapleMart */}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav' >
@@ -52,7 +53,7 @@ const Header = () => {
                         <SearchBox />
                         <Nav.Link as={Link} to='/cart'>
                             <FaShoppingCart />
-                            Cart
+                            <span> Cart</span>
                             {cartItems.length > 0 && generateBadge()}
                         </Nav.Link>
                         {userInfo ? (
