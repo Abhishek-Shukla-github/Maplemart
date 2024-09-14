@@ -1,7 +1,4 @@
 # Maplemart
-### The app features following functionlity
-
-# Maplemart
 
 **Maplemart** is a fully functional eCommerce platform built using the React,TypeScript, MongoDB, Express, Node.js with Redux Toolkit for state management.
 ## [API Documentation](https://documenter.getpostman.com/view/38012941/2sAXqne4F8#63a4bd98-6fa5-4255-8f8c-f555a5e0e7d5) 
