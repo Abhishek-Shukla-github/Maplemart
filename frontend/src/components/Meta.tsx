@@ -17,7 +17,7 @@ const Meta = ({ title, description, keywords }:PropType) => {
 };
 
 Meta.defaultProps = {
-  title: 'Welcome To ProShop',
+  title: 'Welcome To Maplemart',
   description: 'We sell the best products for cheap',
   keywords: 'electronics, buy electronics, cheap electroincs',
 };

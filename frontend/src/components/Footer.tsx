@@ -1,4 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const currentYear: number = new Date().getFullYear();
@@ -8,7 +9,8 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col className='text-center py-3'>
-                        <p>MapleMart &copy; {currentYear}</p>
+                        <p>Maplemart &copy; {currentYear}</p>
+                        <Link to={'https://abshukla.com'} target='_blank'><p>Built by Abhishek Shukla</p></Link>
                     </Col>
                 </Row>
             </Container>
